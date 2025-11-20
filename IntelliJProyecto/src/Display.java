@@ -7,17 +7,20 @@ public class Display extends JFrame {
     private JComboBox comboBox2;
     private JComboBox comboBox3;
     private JCheckBox onCheckBox;
-    private JCheckBox onCheckBox1;
+    private JCheckBox onCheckBox3;
     private JCheckBox onCheckBox2;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
+    private JTextField x000TextField;
+    private JTextField x000TextField1;
+    private JTextField x000TextField2;
+    private JSlider slider1;
+    private JSlider slider2;
+    private JSlider slider3;
 
     public Display()
     {
         setTitle("FM Synthesizer");
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        setSize(1000, 700);
+        setSize(1300, 700);
         setContentPane(JPanel);
         setResizable(false);
         setLocationRelativeTo(null);
