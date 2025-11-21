@@ -40,7 +40,7 @@ public class AudioThread extends Thread{
         {
             while (!running)
             {
-                Utils.handleProcedure(this::wait, printStackTrace false);
+                Utils.handleProcedure(this::wait, printStackTrace: false);
             }
             int processedBufs = alGetSourcei(source, AL_BUFFERS_PROCESSED);
             for (int i=0; i< processedBufs; i++)
