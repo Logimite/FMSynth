@@ -1,7 +1,6 @@
 import org.lwjgl.openal.AL;
 import org.lwjgl.openal.ALC;
 import java.util.function.Supplier;
-import com.g223.synth.utils.Utils;
 import static org.lwjgl.openal.AL10.*;
 import static org.lwjgl.openal.ALC10.*;
 
