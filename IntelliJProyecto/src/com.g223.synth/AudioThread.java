@@ -1,5 +1,7 @@
 import org.lwjgl.openal.AL;
 import org.lwjgl.openal.ALC;
+import java.util.function.Supplier;
+import org.lwjgl.openal.OpenALException;
 import static org.lwjgl.openal.AL10.*;
 import static org.lwjgl.openal.ALC10.*;
 
@@ -14,7 +16,7 @@ public class AudioThread extends Thread{
     private int bufferIndex;
     private boolean closed;
     private boolean running;
-    private int sampleRate = 441000;
+    private int sampleRate = 44100;
     private short[] getBuffer() {
         return new short[BUFFER_SIZE];
     }
@@ -40,13 +42,13 @@ public class AudioThread extends Thread{
         {
             while (!running)
             {
-                Utils.handleProcedure(this::wait, printStackTrace: false);
+                Utils.handleProcedure(this::wait, false);
             }
             int processedBufs = alGetSourcei(source, AL_BUFFERS_PROCESSED);
             for (int i=0; i< processedBufs; i++)
             {
                 short[] samples = bufferSupplier.get();
-                buffers[buffersIndex] = alGenBuffers();
+                buffers[bufferIndex] = alGenBuffers();
                 bufferSamples(samples);
                 alDeleteBuffers(alSourceUnqueueBuffers(source));
                 buffers[bufferIndex] = alGenBuffers();
@@ -58,7 +60,7 @@ public class AudioThread extends Thread{
             catchInternalException();
         }
         alDeleteSources(source);
-        alDepeteBuffers(buffers);
+        alDeleteBuffers(buffers);
         alcDestroyContext(context);
         alcCloseDevice(device);
     }
