@@ -1,4 +1,3 @@
-package com.g223.synth;
 import static org.lwjgl.openal.AL10.*;
 
 class OpenALException extends RuntimeException

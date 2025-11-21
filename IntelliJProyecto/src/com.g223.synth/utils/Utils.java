@@ -1,5 +1,3 @@
-package com.g223.synth.utils;
-
 public class Utils
 {
     public static void invokeProcedure(Procedure procedure, boolean printStackTrace)
