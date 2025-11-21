@@ -51,7 +51,6 @@ public class AudioThread extends Thread{
                 buffers[bufferIndex] = alGenBuffers();
                 bufferSamples(samples);
                 alDeleteBuffers(alSourceUnqueueBuffers(source));
-                buffers[bufferIndex] = alGenBuffers();
             }
             if (alGetSourcei(source, AL_SOURCE_STATE) != AL_PLAYING)
             {
